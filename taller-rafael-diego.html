@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller Rafael Diego — El Astillero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1E1C1A;
+    --paper:#F1EDE4;
+    --steel:#42607A;
+    --amber:#C77B2E;
+    --muted:#8A8577;
+    --line: rgba(241,237,228,0.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    text-transform:none;
+    letter-spacing:0.2px;
+    font-weight:600;
+    line-height:1.05;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(30,28,26,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;
+  }
+  .brand{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.15rem;}
+  .brand span{color:var(--amber);}
+  .call-btn{
+    background:var(--amber);color:var(--ink);
+    font-weight:600;font-size:0.95rem;
+    padding:10px 18px;border-radius:3px;
+    text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    white-space:nowrap;
+  }
+
+  /* HERO */
+  .hero{
+    padding:88px 0 64px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 0.9fr;
+    gap:56px;
+    align-items:end;
+  }
+  .eyebrow-line{
+    width:44px;height:2px;background:var(--amber);margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,5vw,3.6rem);
+    max-width:11ch;
+    margin-bottom:22px;
+  }
+  .hero p.lede{
+    font-size:1.1rem;color:var(--paper);opacity:0.82;
+    max-width:46ch;margin-bottom:30px;
+  }
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--amber);color:var(--ink);font-weight:600;
+    padding:14px 26px;border-radius:3px;text-decoration:none;font-size:1rem;
+  }
+  .btn-ghost{
+    border:1px solid var(--line);color:var(--paper);
+    padding:14px 26px;border-radius:3px;text-decoration:none;font-size:1rem;
+  }
+  .years-block{
+    border-left:2px solid var(--amber);
+    padding-left:24px;
+  }
+  .years-block .num{
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:5rem;line-height:0.9;color:var(--paper);
+  }
+  .years-block .num sup{font-size:2rem;top:-1.6em;}
+  .years-block .cap{
+    margin-top:10px;color:var(--muted);font-size:0.95rem;max-width:22ch;
+  }
+
+  /* SERVICIOS */
+  .services{padding:72px 0;border-bottom:1px solid var(--line);}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:42px;flex-wrap:wrap;
+  }
+  .section-head h2{font-size:2rem;}
+  .section-head p{color:var(--muted);max-width:34ch;font-size:0.95rem;}
+  .service-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    border-top:1px solid var(--line);
+  }
+  .service-row{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+    display:flex;justify-content:space-between;align-items:baseline;
+    gap:16px;
+  }
+  .service-row:nth-child(odd){border-right:1px solid var(--line);padding-right:28px;}
+  .service-row:nth-child(even){padding-left:28px;}
+  .service-row h3{font-size:1.1rem;font-weight:500;font-family:'Inter',sans-serif;}
+  .service-row .tag{color:var(--muted);font-size:0.85rem;white-space:nowrap;}
+
+  /* POR QUE */
+  .why{padding:72px 0;border-bottom:1px solid var(--line);}
+  .why-grid{
+    display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;
+  }
+  .why-list{display:flex;flex-direction:column;gap:28px;}
+  .why-item{border-top:1px solid var(--line);padding-top:16px;}
+  .why-item h3{font-size:1.05rem;font-weight:500;font-family:'Inter',sans-serif;margin-bottom:6px;color:var(--paper);}
+  .why-item p{color:var(--muted);font-size:0.92rem;max-width:40ch;}
+
+  /* RESEÑAS */
+  .reviews{padding:72px 0;border-bottom:1px solid var(--line);}
+  .review-quote{
+    font-family:'Oswald',sans-serif;font-weight:500;
+    font-size:clamp(1.3rem,2.6vw,1.8rem);
+    max-width:22ch;line-height:1.28;
+    margin-bottom:18px;
+  }
+  .review-source{color:var(--amber);font-size:0.9rem;margin-bottom:56px;}
+  .review-source span{color:var(--muted);}
+  .rating-strip{
+    display:flex;align-items:center;gap:14px;margin-top:8px;
+    color:var(--muted);font-size:0.9rem;
+  }
+  .rating-strip strong{color:var(--paper);font-size:1.4rem;font-family:'Oswald',sans-serif;}
+
+  /* CONTACTO */
+  .contact{padding:72px 0 90px;}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;
+  }
+  .contact h2{font-size:2rem;margin-bottom:20px;}
+  .info-row{
+    display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line);
+  }
+  .info-row:last-child{border-bottom:1px solid var(--line);}
+  .info-row .k{color:var(--muted);font-size:0.85rem;min-width:110px;}
+  .info-row .v{font-size:0.98rem;}
+  .placeholder{color:var(--amber);font-style:normal;}
+  .map-box{
+    background:#141312;border:1px solid var(--line);border-radius:4px;
+    min-height:280px;display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:0.9rem;text-align:center;padding:24px;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:26px 0;color:var(--muted);font-size:0.82rem;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+
+  @media (max-width:760px){
+    .hero-grid,.why-grid,.contact-grid{grid-template-columns:1fr;}
+    .service-list{grid-template-columns:1fr;}
+    .service-row:nth-child(odd){border-right:none;padding-right:0;}
+    .service-row:nth-child(even){padding-left:0;}
+    .years-block{border-left:none;border-top:2px solid var(--amber);padding-left:0;padding-top:18px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Taller <span>Rafael Diego</span></div>
+    <a class="call-btn" href="tel:+34000000000">☎ Llamar ahora</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-line"></div>
+      <h1>Tu coche, en manos de quien lo conoce de verdad.</h1>
+      <p class="lede">Taller familiar en El Astillero. Diagnóstico rápido, reparación honesta y el mismo trato de siempre, generación tras generación.</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="tel:+34000000000">Pedir cita</a>
+        <a class="btn-ghost" href="#contacto">Cómo llegar</a>
+      </div>
+    </div>
+    <div class="years-block">
+      <div class="num">30<sup>+</sup></div>
+      <div class="cap">años reparando coches de familias de El Astillero</div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Servicios</h2>
+      <p>A confirmar / ajustar con el taller — lista orientativa de un taller de mecánica general.</p>
+    </div>
+    <div class="service-list">
+      <div class="service-row"><h3>Mecánica general</h3><span class="tag">Motor · transmisión</span></div>
+      <div class="service-row"><h3>Diagnóstico de averías</h3><span class="tag">Rápido</span></div>
+      <div class="service-row"><h3>Frenos</h3><span class="tag">Revisión y cambio</span></div>
+      <div class="service-row"><h3>Cambio de aceite y filtros</h3><span class="tag">Mantenimiento</span></div>
+      <div class="service-row"><h3>Neumáticos</h3><span class="tag">Venta e instalación</span></div>
+      <div class="service-row"><h3>Preparación para ITV</h3><span class="tag">Antes de pasar revisión</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap why-grid">
+    <div>
+      <h2>Por qué este taller</h2>
+    </div>
+    <div class="why-list">
+      <div class="why-item">
+        <h3>Más de 30 años en el barrio</h3>
+        <p>Familias de El Astillero llevan generaciones confiando sus coches al mismo taller.</p>
+      </div>
+      <div class="why-item">
+        <h3>Diagnóstico claro, sin rodeos</h3>
+        <p>Se explica lo que tiene el coche y lo que cuesta arreglarlo, antes de tocar nada.</p>
+      </div>
+      <div class="why-item">
+        <h3>Trato cercano</h3>
+        <p>Se atiende con la misma agilidad y amabilidad tanto si es la primera visita como si es la de siempre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="rating-strip">
+      <strong>4,9 / 5</strong>
+      <span>· 17 reseñas en Google</span>
+    </div>
+    <br>
+    <p class="review-quote">"Llevo más de 30 años llevando mis coches a este taller familiar. 100% recomendable."</p>
+    <p class="review-source">Cliente habitual <span>— Reseña de Google</span></p>
+
+    <p class="review-quote">"Siempre increíble lo bien que arreglan todo. Llevamos años yendo con diferentes coches y siempre encuentran la avería."</p>
+    <p class="review-source">Jaime B. <span>— Reseña de Google</span></p>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Visítanos</h2>
+      <div class="info-row"><div class="k">Dirección</div><div class="v">Bo. Rivas, 22<br>39610 Astillero, Cantabria</div></div>
+      <div class="info-row"><div class="k">Teléfono</div><div class="v placeholder">[Añadir teléfono]</div></div>
+      <div class="info-row"><div class="k">Horario</div><div class="v placeholder">[Añadir horario]</div></div>
+    </div>
+    <div class="map-box">
+      Mapa embebido de Google Maps<br>(Bo. Rivas, 22, El Astillero)
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;">
+    <span>Taller Rafael Diego · El Astillero, Cantabria</span>
+    <span>Demo — pendiente de confirmar datos con el taller</span>
+  </div>
+</footer>
+
+</body>
+</html>
